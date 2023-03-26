@@ -16,15 +16,14 @@ export const Feedback = ({buttonsData}) => {
   };
   
   const incrementButton = (e) => {
-if (e.target.name === 'good') {
-    setGood(prevGood => prevGood + 1);
-}
-else if (e.target.name === 'bad') {
-  setBad(prevBad => prevBad + 1);
-}
-else {
-  setNeutral((prevNeutral) => prevNeutral + 1);
-  } 
+    switch (e.target.name) {
+      case "good": setGood(prevGood => prevGood + 1);
+        break;
+      case "bad": setBad(prevBad => prevBad + 1);
+        break;
+      default: setNeutral(prevNeutral => prevNeutral + 1);
+        break;
+    }
         countPositiveFeedbackPercentage();
     }
         return (
